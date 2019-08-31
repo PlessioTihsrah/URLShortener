@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>URL Shortener</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <% if(error.length >0){%>
+      <div class="alert alert-danger" role="alert"><%=error%></div>
+      <% } %> <% if(success.length > 0){%>
+      <div class="alert alert-success" role="alert">
+        Post made successfully. You can access it at
+        http://compres.tk/<%=success%>
+      </div>
+      <% } %>
+      <h1 class="text-center">URL Shortener</h1>
+      <form action="/create" method="post">
+        <div class="form-group">
+          <label for="id">Enter Shortened ID</label>
+          <input type="text" class="form-control" id="id" name="id" required />
+        </div>
+        <div class="form-group">
+          <label for="url">Enter URL to be shortened</label>
+          <input
+            type="url"
+            class="form-control"
+            id="url"
+            name="url"
+            placeholder="format: http://*"
+            value="http://"
+            required
+          />
+        </div>
+        <div class="row">
+          <div class="col">
+            <button type="submit" class="btn btn-success btn-block">
+              Submit
+            </button>
+          </div>
+          <div class="col">
+            <button type="reset" class="btn btn-danger btn-block">Reset</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
